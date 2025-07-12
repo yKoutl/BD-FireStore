@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventario de Medicamentos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <header style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+     <div style="display: flex; align-items: center; gap: 1rem;">
+<img src="https://static.cdnlogo.com/logos/g/46/google-cloud.png" alt="Google Cloud Logo" width="50" class="logo-grande">
+    <h1>Inventario de Medicamentos</h1>
+  </div>
+   <button id="toggle-tema">🌙 Modo Oscuro</button>
+
+  </header>
+  <button onclick="abrirModal()">+ Agregar Medicamento</button>
+
+  <!-- Modal -->
+  <div id="modal">
+    <div class="modal-content">
+      <h2>Nuevo Medicamento</h2>
+      <form id="form-agregar" action="/agregar" method="POST">
+        <input name="medicamentoId" placeholder="ID Medicamento" required>
+        <input name="nombre" placeholder="Nombre" required>
+        <input name="stock" type="number" placeholder="Stock" required>
+        <input name="fechaVencimiento" type="date" required>
+        <input name="precio" type="number" step="0.01" placeholder="Precio" required>
+        <button type="submit">Guardar</button>
+        <button type="button" onclick="cerrarModal()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Tabla -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Stock</th>
+        <th>Fecha Venc.</th>
+        <th>Precio (S/.)</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="tabla-body">
+    </tbody>
+  </table>
+    <footer class="footer">
+    <p>Base de datos II <strong>Firestore</strong> – <strong>URP</strong></p>
+  </footer>
+
+
+  <script src="Operaciones.js"></script>
+</body>
+</html>
